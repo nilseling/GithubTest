@@ -1,0 +1,35 @@
+---
+title: "01-readData"
+author: "nilseling"
+date: "2020-05-05"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Read in the iris dataset.
+Read in all libraries.
+
+```{r}
+library(ggplot2)
+data(iris)
+```
+
+## Exploratory data analysis
+
+Very simple gpplot
+
+```{r simple-plot}
+ggplot(iris) +
+  geom_point(aes(x = Sepal.Width, y = Sepal.Length, colour = Species))
+```
+
+## Save the processed data
+
+Save the data in the rds format.
+
+```{r save-data}
+saveRDS(iris, "data/iris.rds")
+```
