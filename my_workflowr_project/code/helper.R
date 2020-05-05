@@ -27,7 +27,14 @@ my_plotPCA <- function(pca, colour_by){
                        PC2 = pca$x[,2],
                        colour = colour_by)
 
+  # Calculate variance explained
+  cur_var <- pca$sdev ^ 2
+  cur_var_expl <- (cur_var / sum(cur_var)) * 100
+  cur_var_expl <- round(cur_var_expl, digits = 2)
+
   # Plot the PCA
   ggplot(cur_df) +
-    geom_point(aes(x = PC1, y = PC2, colour = colour))
+    geom_point(aes(x = PC1, y = PC2, colour = colour)) +
+    xlab(paste0("PC1 ", cur_var_expl[1], "% var explained")) +
+    ylab(paste0("PC2 ", cur_var_expl[2], "% var explained"))
 }
