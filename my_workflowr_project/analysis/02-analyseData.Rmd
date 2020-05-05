@@ -1,0 +1,36 @@
+---
+title: "02-analyseData"
+author: "nilseling"
+date: "2020-05-05"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Read in the processed data.
+
+```{r}
+iris_dat <- readRDS("data/iris.rds")
+source("code/helper.R")
+```
+
+## Compute a PCA
+
+We use the `prcomp` function in base R:
+
+```{r PCA}
+cur_pca <- prcomp(iris_dat[,1:4], scale. = TRUE)
+```
+
+## Plot the PCA
+
+Using the custom function
+
+```{r plot-PCA}
+my_plotPCA(cur_pca, colour_by = iris$Species)
+```
+
+
+
