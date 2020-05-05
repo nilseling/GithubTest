@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-05-05" />
 
-<title>01-readData</title>
+<title>02-analyseData</title>
 
 <script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -387,7 +387,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">01-readData</h1>
+<h1 class="title toc-ignore">02-analyseData</h1>
 <h4 class="author">nilseling</h4>
 <h4 class="date">2020-05-05</h4>
 
@@ -540,7 +540,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>my_workflowr_project/analysis/01-readData.Rmd</code>) and HTML (<code>my_workflowr_project/docs/01-readData.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>my_workflowr_project/analysis/02-analyseData.Rmd</code>) and HTML (<code>my_workflowr_project/docs/02-analyseData.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -569,7 +569,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/nilseling/GithubTest/blob/7f3e9ba597bb8d956eadf465afe75622ee4c8504/my_workflowr_project/analysis/01-readData.Rmd" target="_blank">7f3e9ba</a>
+<a href="https://github.com/nilseling/GithubTest/blob/a1de622e941c01c845c6e33d8ccda96e3beaac48/my_workflowr_project/analysis/02-analyseData.Rmd" target="_blank">a1de622</a>
 </td>
 <td>
 nilseling
@@ -578,24 +578,7 @@ nilseling
 2020-05-05
 </td>
 <td>
-Reading in the data
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/nilseling/GithubTest/7f3e9ba597bb8d956eadf465afe75622ee4c8504/my_workflowr_project/docs/01-readData.html" target="_blank">7f3e9ba</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-<td>
-Reading in the data
+Computed and plotted a PCA
 </td>
 </tr>
 </tbody>
@@ -607,58 +590,20 @@ Reading in the data
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Read in the iris dataset. Read in all libraries.</p>
-<pre class="r"><code>library(ggplot2)
-data(iris)</code></pre>
+<p>Read in the processed data.</p>
+<pre class="r"><code>iris_dat &lt;- readRDS(&quot;data/iris.rds&quot;)
+source(&quot;code/helper.R&quot;)</code></pre>
 </div>
-<div id="exploratory-data-analysis" class="section level2">
-<h2>Exploratory data analysis</h2>
-<p>Very simple gpplot</p>
-<pre class="r"><code>ggplot(iris) +
-  geom_point(aes(x = Sepal.Width, y = Sepal.Length, colour = Species))</code></pre>
-<p><img src="figure/01-readData.Rmd/simple-plot-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-simple-plot-1">
-Past versions of simple-plot-1.png
-</button>
-</p>
-<div id="fig-simple-plot-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/nilseling/GithubTest/blob/7f3e9ba597bb8d956eadf465afe75622ee4c8504/my_workflowr_project/docs/figure/01-readData.Rmd/simple-plot-1.png" target="_blank">7f3e9ba</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-</tr>
-</tbody>
-</table>
+<div id="compute-a-pca" class="section level2">
+<h2>Compute a PCA</h2>
+<p>We use the <code>prcomp</code> function in base R:</p>
+<pre class="r"><code>cur_pca &lt;- prcomp(iris_dat[,1:4], scale. = TRUE)</code></pre>
 </div>
-</div>
-</div>
-<div id="save-the-processed-data" class="section level2">
-<h2>Save the processed data</h2>
-<p>Save the data in the rds format.</p>
-<pre class="r"><code>saveRDS(iris, &quot;data/iris.rds&quot;)</code></pre>
+<div id="plot-the-pca" class="section level2">
+<h2>Plot the PCA</h2>
+<p>Using the custom function</p>
+<pre class="r"><code>my_plotPCA(cur_pca, colour_by = iris$Species)</code></pre>
+<p><img src="figure/02-analyseData.Rmd/plot-PCA-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

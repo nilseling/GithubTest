@@ -5,6 +5,10 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Read in the data
+    href: 01-readData.html
+  - text: Data analysis
+    href: 02-analyseData.html
   - text: About
     href: about.html
   - text: License
