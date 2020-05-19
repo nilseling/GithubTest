@@ -1,0 +1,157 @@
+---
+title: "03-regression"
+author: "nilseling"
+date: "2020-05-12"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Simple linear regression
+
+We're going to work with the cars dataset
+
+```{r}
+str(cars)
+
+head(cars)
+tail(cars)
+```
+
+### Simple visualisation
+
+
+```{r viz}
+library(tidyverse)
+
+cars %>%
+  ggplot() + geom_point(aes(x = speed, y = dist))
+```
+
+
+### Fitting the model
+
+```{r lm-function}
+stop_dist_model <- lm(dist ~ speed, data = cars)
+
+stop_dist_model
+
+summary(stop_dist_model)
+```
+
+### Intro to broom package
+
+```{r broom}
+library(broom)
+
+broom::augment(stop_dist_model)
+broom::tidy(stop_dist_model)
+broom::glance(stop_dist_model)
+```
+
+We can now visulize the model fit:
+
+```{r viz-2}
+augment(stop_dist_model) %>%
+  ggplot() + geom_point(aes(speed, dist)) +
+  geom_line(aes(speed, .fitted), colour = "red", lwd = 2) +
+  geom_segment(aes(speed, dist, xend = speed, yend = .fitted)) +
+  geom_label(data = glance(stop_dist_model), aes(x = 5, y = 120, label = paste0("R2: ", round(r.squared, 2))))
+```
+
+**Calculate the regression coefficients**
+
+```{r}
+x <- cars$speed
+y <- cars$dist
+
+Sxy <- sum((x - mean(x)) * (y - mean(y)))
+Sxx <- sum((x - mean(x)) ^ 2)
+
+beta_hat_1 <- Sxy / Sxx
+beta_hat_0 <- mean(y) - beta_hat_1 * mean(x)
+
+c(beta_hat_0, beta_hat_1)
+stop_dist_model
+```
+
+**Calculating the standard error**
+
+```{r SE}
+cur_resid <- residuals(stop_dist_model)
+cur_resid
+
+manual_resid <- y - (beta_hat_0 + beta_hat_1 * x)
+manual_resid
+
+all.equal(as.numeric(cur_resid), manual_resid)
+```
+
+Calculate model variance
+
+```{r}
+se_2 <- sum(manual_resid ^ 2) / (nrow(cars) - 2)
+se_2
+
+sqrt(se_2)
+
+summary(stop_dist_model)
+```
+
+**Calculate a variance decomposition**
+
+```{r}
+y_hat <- beta_hat_0 + beta_hat_1 * x
+
+SST <- sum((y - mean(y)) ^ 2)
+SSE <- sum((y - y_hat) ^ 2)
+SSReg <- sum((y_hat - mean(y)) ^ 2)
+
+R2 <- SSReg / SST
+R2
+
+summary(stop_dist_model)
+```
+
+## Inference for SLR
+
+**Calculating the standard errors of the regression coefficients**
+
+```{r}
+Sxx <- sum((x - mean(x)) ^ 2)
+s_e <- sqrt(se_2)
+n <- nrow(cars)
+
+SE_beta_hat_0 <- s_e * sqrt(1 / n + mean(x) ^ 2 / Sxx)
+SE_beta_hat_1 <- s_e /  sqrt(Sxx)
+
+c(SE_beta_hat_0, SE_beta_hat_1)
+
+tidy(stop_dist_model)
+```
+
+**Calculate the t statistic**
+
+```{r t-statistic}
+t_beta_hat_0 <- (beta_hat_0 - 0) / SE_beta_hat_0
+t_beta_hat_1 <- (beta_hat_1 - 0) / SE_beta_hat_1
+
+c(t_beta_hat_0, t_beta_hat_1)
+tidy(stop_dist_model)
+```
+
+**Calculate the p-value**
+
+```{r p-value}
+p_beta_hat_0 <- 2 * pt(abs(t_beta_hat_0), df = nrow(cars) - 2, lower.tail = FALSE)
+p_beta_hat_1 <- 2 * pt(abs(t_beta_hat_1), df = nrow(cars) - 2, lower.tail = FALSE)
+```
+
+
+
+
+
+
+
+
+

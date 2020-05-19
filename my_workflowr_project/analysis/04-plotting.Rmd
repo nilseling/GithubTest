@@ -1,0 +1,253 @@
+---
+title: "04-plotting"
+author: "nilseling"
+date: "2020-05-19"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In todays session, we will go through a number of common plot types and will learn how to generate them using `ggplot2` and other packages of the "ggverse".
+For simplicity, I will again use the `iris` dataset and will use this to highlight a couple of different plots.
+
+```{r}
+data(iris)
+library(ggplot2)
+```
+
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPING>),
+    stat = <STAT>, position = <POSITION>) + 
+  <COORDINATE_FUNCTION> +
+  <FACET_FUNCTION> +
+  <THEME_FUNCTION>
+  
+## Scatterplot
+
+Create scatterplot `Sepal.Width` versus `Sepal.Length`:
+
+```{r scatter-1}
+p1 <- ggplot(data = iris) +
+  geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species))
+p1
+```
+
+Quickplot `qplot`
+
+```{r qplot}
+qplot(data = iris, x = Sepal.Width, y = Sepal.Length, colour = Species, geom = "point")
+```
+
+### Add another layer
+
+Add a linear regression line per group
+
+```{r geom_smooth}
+p1 <- p1 + geom_smooth(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species), 
+                       method = "lm", formula = "y ~ x")
+p1
+```
+
+### Facetting
+
+```{r facetting}
+p1 <- p1 + facet_wrap(. ~ Species)
+p1
+```
+
+Use the NPG colour scheme
+
+```{r change-colours}
+library(ggsci)
+p1 <- p1 + scale_colour_npg()
+p1
+```
+
+Create a colour vector:
+
+```{r RColorBrewer}
+library(RColorBrewer)
+display.brewer.all(type = "qual", colorblindFriendly = TRUE)
+cur_pal <- brewer.pal(n = 3, name = "Set2")
+colour_vec <- c(setosa = cur_pal[1],
+                versicolor = cur_pal[2],
+                virginica = cur_pal[3])
+
+p1 <- p1 + scale_color_manual(values = colour_vec)
+p1
+```
+
+Start from scratch
+
+```{r scatter-2}
+p1 <- ggplot(data = iris) +
+  geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, fill = Species),
+             shape = 21, size = 2) +
+  geom_smooth(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species), 
+                       method = "lm", formula = "y ~ x") +
+  facet_wrap(. ~ Species, labeller = labeller(Species = c("setosa" = "Setosa",
+                                                          "versicolor" = "Versicolor",
+                                                          "virginica" = "Virginica"))) +
+  scale_color_manual(values = colour_vec, name = "Iris species", labels = c("Setosa", "Versicolor", "Virginica")) +
+  scale_fill_manual(values = colour_vec, name = "Iris species", labels = c("Setosa", "Versicolor", "Virginica")) +
+  xlab("Sepal Length") + ylab("Sepal Width") + 
+  theme(panel.background = element_blank(),
+        panel.border = element_rect(fill = NA),
+        legend.position = c(0.67, 0.8),
+        legend.background = element_rect(colour = "black"),
+        axis.text = element_text(colour = "black", size = 9),
+        axis.title = element_text(size = 12),
+        strip.background = element_blank(),
+        strip.text = element_text(colour = "black", size = 12))
+p1
+```
+
+## Plotting a PCA
+
+We can use the custom PCA function.
+
+```{r load-custumPCA}
+source("code/helper.R")
+cur_pca <- prcomp(iris[,1:4], scale. = TRUE)
+p2 <- my_plotPCA(cur_pca, colour_by = iris$Species)
+p2
+```
+
+Change the theme and other:
+
+```{r change-appearance}
+p2 <- p2 + scale_colour_manual(values = colour_vec, name = "Iris species",
+                    labels = c("Setosa", "Versicolor", "Virginica")) +
+  coord_fixed() + 
+  theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = "black"),
+        legend.position = c(1, 1), 
+        legend.justification = c("right", "top"),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = "black"),
+        axis.text = element_text(colour = "black", size = 9),
+        axis.title = element_text(colour = "black", size = 12))
+p2
+```
+
+## Boxplot
+
+I will plot the distribution of `Sepal.Length` across the different species:
+
+```{r boxplot}
+set.seed(12345)
+p3 <- ggplot(data = iris) +
+  geom_boxplot(mapping = aes(x = Species, y = Sepal.Length, fill = Species), 
+               outlier.colour = NA, notch = TRUE) +
+  geom_jitter(aes(x = Species, y = Sepal.Length), width = 0.1, alpha = 0.7) +
+  scale_fill_manual(values = colour_vec, name = "Iris species",
+                    labels = c("Setosa", "Versicolor", "Virginica")) +
+  scale_x_discrete(breaks = c("setosa", "versicolor", "virginica"),
+                   labels = c("Setosa", "Versicolor", "Virginica")) +
+  xlab("") +
+  ylab("Sepal Length") +
+  theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = "black"),
+        legend.position = c(0.05, 0.95), 
+        legend.justification = c("left", "top"),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = "black"),
+        axis.text.y = element_text(colour = "black", size = 9),
+        axis.text.x = element_text(colour = "black", size = 12),
+        axis.title = element_text(colour = "black", size = 12))
+p3
+```
+
+## Barplot
+
+Caclulate the mean, sd, se and ci of the 4 different features per species:
+
+```{r}
+library(tidyverse)
+cur_dat <- iris %>% 
+  pivot_longer(cols = colnames(iris)[1:4]) %>%
+  group_by(Species, name) %>%
+  summarise(mean_val = mean(value),
+            sd_val = sd(value),
+            n_val = length(value),
+            se_val = sd_val / sqrt(n_val),
+            ci_t = qt(0.975, df = n_val - 1) * se_val)
+
+cur_dat
+```
+
+Display this in barplot:
+
+```{r barplot}
+cur_dat$Measurement <- factor(cur_dat$name, levels = c("Petal.Width", "Petal.Length", "Sepal.Width", "Sepal.Length"))
+p4 <- ggplot(cur_dat, mapping = aes(x = Species, y = mean_val, fill = Measurement)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  geom_errorbar(aes(ymin = mean_val - ci_t, ymax = mean_val + ci_t), 
+                position = position_dodge(width = 0.9), width = 0.2) +
+  scale_fill_brewer(palette = "Paired",
+                    labels = c("Petal Width", "Petal Length", "Sepal Width", "Sepal Length")) +
+  labs(x = "", y = "Measured value [cm]") +
+  scale_x_discrete(breaks = c("setosa", "versicolor", "virginica"),
+                   labels = c("Setosa", "Versicolor", "Virginica")) +
+    theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = "black"),
+        legend.position = c(0.05, 0.95), 
+        legend.justification = c("left", "top"),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = "black"),
+        axis.text.y = element_text(colour = "black", size = 9),
+        axis.text.x = element_text(colour = "black", size = 12, angle = 45, hjust = 1),
+        axis.title = element_text(colour = "black", size = 12))
+p4
+```
+
+## Heatmap
+
+rows: all features, col: all samples
+
+```{r}
+library(pheatmap)
+
+cur_dat <- t(iris[1:4])
+colnames(cur_dat) <- rownames(iris)
+p5 <- pheatmap(cur_dat, scale = "row", color = colorRampPalette(c("dark blue", "white", "dark red"))(100),
+               annotation_col = data.frame(row.names = colnames(cur_dat),
+                                           Species = iris$Species),
+               annotation_colors = list(Species = colour_vec),
+               show_colnames = FALSE,
+               labels_row = sub("\\.", " ", rownames(cur_dat)))
+```
+
+## Stitching it together
+
+```{r cowplot}
+library(cowplot)
+
+upper_row <- p1
+middle_row <- plot_grid(p2 + theme(legend.title = element_text(size = 10),
+                                   legend.text = element_text(size = 8),
+                                   legend.key.size = unit(0.1, "cm"),
+                                   legend.position = c(1, 1.3)), 
+                        p3 + theme(legend.title = element_text(size = 10),
+                                   legend.text = element_text(size = 8),
+                                   legend.key.width = unit(0.3, "cm")), 
+                        p4 + theme(legend.title = element_text(size = 8),
+                                   legend.text = element_text(size = 6),
+                                   legend.position = c(0.05, 1.1),
+                                   legend.key.size = unit(0.3, "cm")), 
+                        ncol = 3, labels = c("B", "C", "D"))
+lower_row <- p5$gtable
+
+final_figure <- plot_grid(upper_row, middle_row, lower_row, labels = c("A", "", "E"), nrow = 3)
+
+ggsave(filename = "docs/final_figures/Fig_1.pdf", plot = final_figure, width = 210, height = 290, units = "mm")
+```
+
+
+
+
+
+
+

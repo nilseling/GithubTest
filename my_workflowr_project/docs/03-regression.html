@@ -11,9 +11,9 @@
 
 <meta name="author" content="nilseling" />
 
-<meta name="date" content="2020-05-05" />
+<meta name="date" content="2020-05-12" />
 
-<title>02-analyseData</title>
+<title>03-regression</title>
 
 <script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -393,16 +393,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">02-analyseData</h1>
+<h1 class="title toc-ignore">03-regression</h1>
 <h4 class="author">nilseling</h4>
-<h4 class="date">2020-05-05</h4>
+<h4 class="date">2020-05-12</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -411,7 +411,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -423,7 +423,7 @@ div.tocify {
 <strong>Last updated:</strong> 2020-05-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>my_workflowr_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -439,12 +439,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -549,126 +549,262 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>my_workflowr_project/analysis/02-analyseData.Rmd</code>) and HTML (<code>my_workflowr_project/docs/02-analyseData.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/nilseling/GithubTest/fb0dff0d61de8bf1670945035e789c3673df765c/my_workflowr_project/docs/02-analyseData.html" target="_blank">fb0dff0</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-<td>
-Recompiled workflow
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/nilseling/GithubTest/blob/a1de622e941c01c845c6e33d8ccda96e3beaac48/my_workflowr_project/analysis/02-analyseData.Rmd" target="_blank">a1de622</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-<td>
-Computed and plotted a PCA
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Read in the processed data.</p>
-<pre class="r"><code>iris_dat &lt;- readRDS(&quot;data/iris.rds&quot;)
-source(&quot;code/helper.R&quot;)</code></pre>
+<div id="simple-linear-regression" class="section level2">
+<h2>Simple linear regression</h2>
+<p>We’re going to work with the cars dataset</p>
+<pre class="r"><code>str(cars)</code></pre>
+<pre><code>&#39;data.frame&#39;:   50 obs. of  2 variables:
+ $ speed: num  4 4 7 7 8 9 10 10 10 11 ...
+ $ dist : num  2 10 4 22 16 10 18 26 34 17 ...</code></pre>
+<pre class="r"><code>head(cars)</code></pre>
+<pre><code>  speed dist
+1     4    2
+2     4   10
+3     7    4
+4     7   22
+5     8   16
+6     9   10</code></pre>
+<pre class="r"><code>tail(cars)</code></pre>
+<pre><code>   speed dist
+45    23   54
+46    24   70
+47    24   92
+48    24   93
+49    24  120
+50    25   85</code></pre>
+<div id="simple-visualisation" class="section level3">
+<h3>Simple visualisation</h3>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>✓ ggplot2 3.3.0     ✓ purrr   0.3.4
+✓ tibble  3.0.1     ✓ dplyr   0.8.5
+✓ tidyr   1.0.2     ✓ stringr 1.4.0
+✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>cars %&gt;%
+  ggplot() + geom_point(aes(x = speed, y = dist))</code></pre>
+<p><img src="figure/03-regression.Rmd/viz-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="compute-a-pca" class="section level2">
-<h2>Compute a PCA</h2>
-<p>We use the <code>prcomp</code> function in base R:</p>
-<pre class="r"><code>cur_pca &lt;- prcomp(iris_dat[,1:4], scale. = TRUE)</code></pre>
+<div id="fitting-the-model" class="section level3">
+<h3>Fitting the model</h3>
+<pre class="r"><code>stop_dist_model &lt;- lm(dist ~ speed, data = cars)
+
+stop_dist_model</code></pre>
+<pre><code>
+Call:
+lm(formula = dist ~ speed, data = cars)
+
+Coefficients:
+(Intercept)        speed  
+    -17.579        3.932  </code></pre>
+<pre class="r"><code>summary(stop_dist_model)</code></pre>
+<pre><code>
+Call:
+lm(formula = dist ~ speed, data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.069  -9.525  -2.272   9.215  43.201 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+speed         3.9324     0.4155   9.464 1.49e-12 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 15.38 on 48 degrees of freedom
+Multiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 
+F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 </div>
-<div id="plot-the-pca" class="section level2">
-<h2>Plot the PCA</h2>
-<p>Using the custom function</p>
-<pre class="r"><code>my_plotPCA(cur_pca, colour_by = iris$Species)</code></pre>
-<p><img src="figure/02-analyseData.Rmd/plot-PCA-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot-PCA-1">
-Past versions of plot-PCA-1.png
-</button>
-</p>
-<div id="fig-plot-PCA-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/nilseling/GithubTest/blob/fb0dff0d61de8bf1670945035e789c3673df765c/my_workflowr_project/docs/figure/02-analyseData.Rmd/plot-PCA-1.png" target="_blank">fb0dff0</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-</tr>
-</tbody>
-</table>
+<div id="intro-to-broom-package" class="section level3">
+<h3>Intro to broom package</h3>
+<pre class="r"><code>library(broom)
+
+broom::augment(stop_dist_model)</code></pre>
+<pre><code># A tibble: 50 x 9
+    dist speed .fitted .se.fit .resid   .hat .sigma  .cooksd .std.resid
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1     2     4   -1.85    5.21   3.85 0.115    15.5 0.00459       0.266
+ 2    10     4   -1.85    5.21  11.8  0.115    15.4 0.0435        0.819
+ 3     4     7    9.95    4.11  -5.95 0.0715   15.5 0.00620      -0.401
+ 4    22     7    9.95    4.11  12.1  0.0715   15.4 0.0255        0.813
+ 5    16     8   13.9     3.77   2.12 0.0600   15.5 0.000645      0.142
+ 6    10     9   17.8     3.44  -7.81 0.0499   15.5 0.00713      -0.521
+ 7    18    10   21.7     3.12  -3.74 0.0413   15.5 0.00133      -0.249
+ 8    26    10   21.7     3.12   4.26 0.0413   15.5 0.00172       0.283
+ 9    34    10   21.7     3.12  12.3  0.0413   15.4 0.0143        0.814
+10    17    11   25.7     2.84  -8.68 0.0341   15.5 0.00582      -0.574
+# … with 40 more rows</code></pre>
+<pre class="r"><code>broom::tidy(stop_dist_model)</code></pre>
+<pre><code># A tibble: 2 x 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
+2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
+<pre class="r"><code>broom::glance(stop_dist_model)</code></pre>
+<pre><code># A tibble: 1 x 11
+  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.651         0.644  15.4      89.6 1.49e-12     2  -207.  419.  425.
+# … with 2 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;</code></pre>
+<p>We can now visulize the model fit:</p>
+<pre class="r"><code>augment(stop_dist_model) %&gt;%
+  ggplot() + geom_point(aes(speed, dist)) +
+  geom_line(aes(speed, .fitted), colour = &quot;red&quot;, lwd = 2) +
+  geom_segment(aes(speed, dist, xend = speed, yend = .fitted)) +
+  geom_label(data = glance(stop_dist_model), aes(x = 5, y = 120, label = paste0(&quot;R2: &quot;, round(r.squared, 2))))</code></pre>
+<p><img src="figure/03-regression.Rmd/viz-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Calculate the regression coefficients</strong></p>
+<pre class="r"><code>x &lt;- cars$speed
+y &lt;- cars$dist
+
+Sxy &lt;- sum((x - mean(x)) * (y - mean(y)))
+Sxx &lt;- sum((x - mean(x)) ^ 2)
+
+beta_hat_1 &lt;- Sxy / Sxx
+beta_hat_0 &lt;- mean(y) - beta_hat_1 * mean(x)
+
+c(beta_hat_0, beta_hat_1)</code></pre>
+<pre><code>[1] -17.579095   3.932409</code></pre>
+<pre class="r"><code>stop_dist_model</code></pre>
+<pre><code>
+Call:
+lm(formula = dist ~ speed, data = cars)
+
+Coefficients:
+(Intercept)        speed  
+    -17.579        3.932  </code></pre>
+<p><strong>Calculating the standard error</strong></p>
+<pre class="r"><code>cur_resid &lt;- residuals(stop_dist_model)
+cur_resid</code></pre>
+<pre><code>         1          2          3          4          5          6          7 
+  3.849460  11.849460  -5.947766  12.052234   2.119825  -7.812584  -3.744993 
+         8          9         10         11         12         13         14 
+  4.255007  12.255007  -8.677401   2.322599 -15.609810  -9.609810  -5.609810 
+        15         16         17         18         19         20         21 
+ -1.609810  -7.542219   0.457781   0.457781  12.457781 -11.474628  -1.474628 
+        22         23         24         25         26         27         28 
+ 22.525372  42.525372 -21.407036 -15.407036  12.592964 -13.339445  -5.339445 
+        29         30         31         32         33         34         35 
+-17.271854  -9.271854   0.728146 -11.204263   2.795737  22.795737  30.795737 
+        36         37         38         39         40         41         42 
+-21.136672 -11.136672  10.863328 -29.069080 -13.069080  -9.069080  -5.069080 
+        43         44         45         46         47         48         49 
+  2.930920  -2.933898 -18.866307  -6.798715  15.201285  16.201285  43.201285 
+        50 
+  4.268876 </code></pre>
+<pre class="r"><code>manual_resid &lt;- y - (beta_hat_0 + beta_hat_1 * x)
+manual_resid</code></pre>
+<pre><code> [1]   3.849460  11.849460  -5.947766  12.052234   2.119825  -7.812584
+ [7]  -3.744993   4.255007  12.255007  -8.677401   2.322599 -15.609810
+[13]  -9.609810  -5.609810  -1.609810  -7.542219   0.457781   0.457781
+[19]  12.457781 -11.474628  -1.474628  22.525372  42.525372 -21.407036
+[25] -15.407036  12.592964 -13.339445  -5.339445 -17.271854  -9.271854
+[31]   0.728146 -11.204263   2.795737  22.795737  30.795737 -21.136672
+[37] -11.136672  10.863328 -29.069080 -13.069080  -9.069080  -5.069080
+[43]   2.930920  -2.933898 -18.866307  -6.798715  15.201285  16.201285
+[49]  43.201285   4.268876</code></pre>
+<pre class="r"><code>all.equal(as.numeric(cur_resid), manual_resid)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>Calculate model variance</p>
+<pre class="r"><code>se_2 &lt;- sum(manual_resid ^ 2) / (nrow(cars) - 2)
+se_2</code></pre>
+<pre><code>[1] 236.5317</code></pre>
+<pre class="r"><code>sqrt(se_2)</code></pre>
+<pre><code>[1] 15.37959</code></pre>
+<pre class="r"><code>summary(stop_dist_model)</code></pre>
+<pre><code>
+Call:
+lm(formula = dist ~ speed, data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.069  -9.525  -2.272   9.215  43.201 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+speed         3.9324     0.4155   9.464 1.49e-12 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 15.38 on 48 degrees of freedom
+Multiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 
+F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
+<p><strong>Calculate a variance decomposition</strong></p>
+<pre class="r"><code>y_hat &lt;- beta_hat_0 + beta_hat_1 * x
+
+SST &lt;- sum((y - mean(y)) ^ 2)
+SSE &lt;- sum((y - y_hat) ^ 2)
+SSReg &lt;- sum((y_hat - mean(y)) ^ 2)
+
+R2 &lt;- SSReg / SST
+R2</code></pre>
+<pre><code>[1] 0.6510794</code></pre>
+<pre class="r"><code>summary(stop_dist_model)</code></pre>
+<pre><code>
+Call:
+lm(formula = dist ~ speed, data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-29.069  -9.525  -2.272   9.215  43.201 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+speed         3.9324     0.4155   9.464 1.49e-12 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 15.38 on 48 degrees of freedom
+Multiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 
+F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 </div>
 </div>
+<div id="inference-for-slr" class="section level2">
+<h2>Inference for SLR</h2>
+<p><strong>Calculating the standard errors of the regression coefficients</strong></p>
+<pre class="r"><code>Sxx &lt;- sum((x - mean(x)) ^ 2)
+s_e &lt;- sqrt(se_2)
+n &lt;- nrow(cars)
+
+SE_beta_hat_0 &lt;- s_e * sqrt(1 / n + mean(x) ^ 2 / Sxx)
+SE_beta_hat_1 &lt;- s_e /  sqrt(Sxx)
+
+c(SE_beta_hat_0, SE_beta_hat_1)</code></pre>
+<pre><code>[1] 6.7584402 0.4155128</code></pre>
+<pre class="r"><code>tidy(stop_dist_model)</code></pre>
+<pre><code># A tibble: 2 x 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
+2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
+<p><strong>Calculate the t statistic</strong></p>
+<pre class="r"><code>t_beta_hat_0 &lt;- (beta_hat_0 - 0) / SE_beta_hat_0
+t_beta_hat_1 &lt;- (beta_hat_1 - 0) / SE_beta_hat_1
+
+c(t_beta_hat_0, t_beta_hat_1)</code></pre>
+<pre><code>[1] -2.601058  9.463990</code></pre>
+<pre class="r"><code>tidy(stop_dist_model)</code></pre>
+<pre><code># A tibble: 2 x 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
+2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
+<p><strong>Calculate the p-value</strong></p>
+<pre class="r"><code>p_beta_hat_0 &lt;- 2 * pt(abs(t_beta_hat_0), df = nrow(cars) - 2, lower.tail = FALSE)
+p_beta_hat_1 &lt;- 2 * pt(abs(t_beta_hat_1), df = nrow(cars) - 2, lower.tail = FALSE)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -692,20 +828,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.0   workflowr_1.6.2
+ [1] broom_0.5.6     forcats_0.5.0   stringr_1.4.0   dplyr_0.8.5    
+ [5] purrr_0.3.4     readr_1.3.1     tidyr_1.0.2     tibble_3.0.1   
+ [9] ggplot2_3.3.0   tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.4.6     compiler_4.0.0   pillar_1.4.4     later_1.0.0     
- [5] git2r_0.27.1     tools_4.0.0      digest_0.6.25    evaluate_0.14   
- [9] lifecycle_0.2.0  tibble_3.0.1     gtable_0.3.0     pkgconfig_2.0.3 
-[13] rlang_0.4.6      yaml_2.2.1       xfun_0.13        withr_2.2.0     
-[17] stringr_1.4.0    dplyr_0.8.5      knitr_1.28       fs_1.4.1        
-[21] vctrs_0.2.4      rprojroot_1.3-2  grid_4.0.0       tidyselect_1.0.0
-[25] glue_1.4.0       R6_2.4.1         rmarkdown_2.1    farver_2.0.3    
-[29] purrr_0.3.4      magrittr_1.5     whisker_0.4      backports_1.1.6 
-[33] scales_1.1.0     promises_1.1.0   htmltools_0.4.0  ellipsis_0.3.0  
-[37] assertthat_0.2.1 colorspace_1.4-1 httpuv_1.5.2     labeling_0.3    
-[41] stringi_1.4.6    munsell_0.5.0    crayon_1.3.4    </code></pre>
+ [1] tidyselect_1.0.0 xfun_0.13        haven_2.2.0      lattice_0.20-41 
+ [5] colorspace_1.4-1 vctrs_0.2.4      generics_0.0.2   htmltools_0.4.0 
+ [9] yaml_2.2.1       utf8_1.1.4       rlang_0.4.6      later_1.0.0     
+[13] pillar_1.4.4     withr_2.2.0      glue_1.4.0       DBI_1.1.0       
+[17] dbplyr_1.4.3     modelr_0.1.7     readxl_1.3.1     lifecycle_0.2.0 
+[21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_0.3.5     
+[25] evaluate_0.14    labeling_0.3     knitr_1.28       httpuv_1.5.2    
+[29] fansi_0.4.1      Rcpp_1.0.4.6     promises_1.1.0   backports_1.1.6 
+[33] scales_1.1.0     jsonlite_1.6.1   farver_2.0.3     fs_1.4.1        
+[37] hms_0.5.3        digest_0.6.25    stringi_1.4.6    grid_4.0.0      
+[41] rprojroot_1.3-2  cli_2.0.2        tools_4.0.0      magrittr_1.5    
+[45] crayon_1.3.4     pkgconfig_2.0.3  ellipsis_0.3.0   xml2_1.3.2      
+[49] reprex_0.3.0     lubridate_1.7.8  rstudioapi_0.11  assertthat_0.2.1
+[53] rmarkdown_2.1    httr_1.4.1       R6_2.4.1         nlme_3.1-147    
+[57] git2r_0.27.1     compiler_4.0.0  </code></pre>
 </div>
 </div>
 

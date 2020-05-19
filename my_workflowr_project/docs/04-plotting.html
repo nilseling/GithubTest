@@ -11,9 +11,9 @@
 
 <meta name="author" content="nilseling" />
 
-<meta name="date" content="2020-05-05" />
+<meta name="date" content="2020-05-19" />
 
-<title>02-analyseData</title>
+<title>04-plotting</title>
 
 <script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -393,16 +393,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">02-analyseData</h1>
+<h1 class="title toc-ignore">04-plotting</h1>
 <h4 class="author">nilseling</h4>
-<h4 class="date">2020-05-05</h4>
+<h4 class="date">2020-05-19</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -411,7 +411,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -423,7 +423,7 @@ div.tocify {
 <strong>Last updated:</strong> 2020-05-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>my_workflowr_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -439,12 +439,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -549,126 +549,239 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>my_workflowr_project/analysis/02-analyseData.Rmd</code>) and HTML (<code>my_workflowr_project/docs/02-analyseData.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/nilseling/GithubTest/fb0dff0d61de8bf1670945035e789c3673df765c/my_workflowr_project/docs/02-analyseData.html" target="_blank">fb0dff0</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-<td>
-Recompiled workflow
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/nilseling/GithubTest/blob/a1de622e941c01c845c6e33d8ccda96e3beaac48/my_workflowr_project/analysis/02-analyseData.Rmd" target="_blank">a1de622</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-<td>
-Computed and plotted a PCA
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Read in the processed data.</p>
-<pre class="r"><code>iris_dat &lt;- readRDS(&quot;data/iris.rds&quot;)
-source(&quot;code/helper.R&quot;)</code></pre>
+<p>In todays session, we will go through a number of common plot types and will learn how to generate them using <code>ggplot2</code> and other packages of the “ggverse”. For simplicity, I will again use the <code>iris</code> dataset and will use this to highlight a couple of different plots.</p>
+<pre class="r"><code>data(iris)
+library(ggplot2)</code></pre>
+<p>ggplot(data = <DATA>) + <GEOM_FUNCTION>(mapping = aes(<MAPPING>), stat = <STAT>, position = <POSITION>) + <COORDINATE_FUNCTION> + <FACET_FUNCTION> + <THEME_FUNCTION></p>
 </div>
-<div id="compute-a-pca" class="section level2">
-<h2>Compute a PCA</h2>
-<p>We use the <code>prcomp</code> function in base R:</p>
-<pre class="r"><code>cur_pca &lt;- prcomp(iris_dat[,1:4], scale. = TRUE)</code></pre>
+<div id="scatterplot" class="section level2">
+<h2>Scatterplot</h2>
+<p>Create scatterplot <code>Sepal.Width</code> versus <code>Sepal.Length</code>:</p>
+<pre class="r"><code>p1 &lt;- ggplot(data = iris) +
+  geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species))
+p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/scatter-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Quickplot <code>qplot</code></p>
+<pre class="r"><code>qplot(data = iris, x = Sepal.Width, y = Sepal.Length, colour = Species, geom = &quot;point&quot;)</code></pre>
+<p><img src="figure/04-plotting.Rmd/qplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="add-another-layer" class="section level3">
+<h3>Add another layer</h3>
+<p>Add a linear regression line per group</p>
+<pre class="r"><code>p1 &lt;- p1 + geom_smooth(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species), 
+                       method = &quot;lm&quot;, formula = &quot;y ~ x&quot;)
+p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/geom_smooth-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="plot-the-pca" class="section level2">
-<h2>Plot the PCA</h2>
-<p>Using the custom function</p>
-<pre class="r"><code>my_plotPCA(cur_pca, colour_by = iris$Species)</code></pre>
-<p><img src="figure/02-analyseData.Rmd/plot-PCA-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plot-PCA-1">
-Past versions of plot-PCA-1.png
-</button>
-</p>
-<div id="fig-plot-PCA-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/nilseling/GithubTest/blob/fb0dff0d61de8bf1670945035e789c3673df765c/my_workflowr_project/docs/figure/02-analyseData.Rmd/plot-PCA-1.png" target="_blank">fb0dff0</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-05-05
-</td>
-</tr>
-</tbody>
-</table>
+<div id="facetting" class="section level3">
+<h3>Facetting</h3>
+<pre class="r"><code>p1 &lt;- p1 + facet_wrap(. ~ Species)
+p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/facetting-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Use the NPG colour scheme</p>
+<pre class="r"><code>library(ggsci)
+p1 &lt;- p1 + scale_colour_npg()
+p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/change-colours-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Create a colour vector:</p>
+<pre class="r"><code>library(RColorBrewer)
+display.brewer.all(type = &quot;qual&quot;, colorblindFriendly = TRUE)</code></pre>
+<p><img src="figure/04-plotting.Rmd/RColorBrewer-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cur_pal &lt;- brewer.pal(n = 3, name = &quot;Set2&quot;)
+colour_vec &lt;- c(setosa = cur_pal[1],
+                versicolor = cur_pal[2],
+                virginica = cur_pal[3])
+
+p1 &lt;- p1 + scale_color_manual(values = colour_vec)</code></pre>
+<pre><code>Scale for &#39;colour&#39; is already present. Adding another scale for &#39;colour&#39;,
+which will replace the existing scale.</code></pre>
+<pre class="r"><code>p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/RColorBrewer-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Start from scratch</p>
+<pre class="r"><code>p1 &lt;- ggplot(data = iris) +
+  geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, fill = Species),
+             shape = 21, size = 2) +
+  geom_smooth(mapping = aes(x = Sepal.Length, y = Sepal.Width, colour = Species), 
+                       method = &quot;lm&quot;, formula = &quot;y ~ x&quot;) +
+  facet_wrap(. ~ Species, labeller = labeller(Species = c(&quot;setosa&quot; = &quot;Setosa&quot;,
+                                                          &quot;versicolor&quot; = &quot;Versicolor&quot;,
+                                                          &quot;virginica&quot; = &quot;Virginica&quot;))) +
+  scale_color_manual(values = colour_vec, name = &quot;Iris species&quot;, labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+  scale_fill_manual(values = colour_vec, name = &quot;Iris species&quot;, labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+  xlab(&quot;Sepal Length&quot;) + ylab(&quot;Sepal Width&quot;) + 
+  theme(panel.background = element_blank(),
+        panel.border = element_rect(fill = NA),
+        legend.position = c(0.67, 0.8),
+        legend.background = element_rect(colour = &quot;black&quot;),
+        axis.text = element_text(colour = &quot;black&quot;, size = 9),
+        axis.title = element_text(size = 12),
+        strip.background = element_blank(),
+        strip.text = element_text(colour = &quot;black&quot;, size = 12))
+p1</code></pre>
+<p><img src="figure/04-plotting.Rmd/scatter-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
+<div id="plotting-a-pca" class="section level2">
+<h2>Plotting a PCA</h2>
+<p>We can use the custom PCA function.</p>
+<pre class="r"><code>source(&quot;code/helper.R&quot;)
+cur_pca &lt;- prcomp(iris[,1:4], scale. = TRUE)
+p2 &lt;- my_plotPCA(cur_pca, colour_by = iris$Species)
+p2</code></pre>
+<p><img src="figure/04-plotting.Rmd/load-custumPCA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Change the theme and other:</p>
+<pre class="r"><code>p2 &lt;- p2 + scale_colour_manual(values = colour_vec, name = &quot;Iris species&quot;,
+                    labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+  coord_fixed() + 
+  theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = &quot;black&quot;),
+        legend.position = c(1, 1), 
+        legend.justification = c(&quot;right&quot;, &quot;top&quot;),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = &quot;black&quot;),
+        axis.text = element_text(colour = &quot;black&quot;, size = 9),
+        axis.title = element_text(colour = &quot;black&quot;, size = 12))
+p2</code></pre>
+<p><img src="figure/04-plotting.Rmd/change-appearance-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="boxplot" class="section level2">
+<h2>Boxplot</h2>
+<p>I will plot the distribution of <code>Sepal.Length</code> across the different species:</p>
+<pre class="r"><code>set.seed(12345)
+p3 &lt;- ggplot(data = iris) +
+  geom_boxplot(mapping = aes(x = Species, y = Sepal.Length, fill = Species), 
+               outlier.colour = NA, notch = TRUE) +
+  geom_jitter(aes(x = Species, y = Sepal.Length), width = 0.1, alpha = 0.7) +
+  scale_fill_manual(values = colour_vec, name = &quot;Iris species&quot;,
+                    labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+  scale_x_discrete(breaks = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;),
+                   labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Sepal Length&quot;) +
+  theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = &quot;black&quot;),
+        legend.position = c(0.05, 0.95), 
+        legend.justification = c(&quot;left&quot;, &quot;top&quot;),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = &quot;black&quot;),
+        axis.text.y = element_text(colour = &quot;black&quot;, size = 9),
+        axis.text.x = element_text(colour = &quot;black&quot;, size = 12),
+        axis.title = element_text(colour = &quot;black&quot;, size = 12))
+p3</code></pre>
+<p><img src="figure/04-plotting.Rmd/boxplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="barplot" class="section level2">
+<h2>Barplot</h2>
+<p>Caclulate the mean, sd, se and ci of the 4 different features per species:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>✓ tibble  3.0.1     ✓ dplyr   0.8.5
+✓ tidyr   1.0.2     ✓ stringr 1.4.0
+✓ readr   1.3.1     ✓ forcats 0.5.0
+✓ purrr   0.3.4     </code></pre>
+<pre><code>── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>cur_dat &lt;- iris %&gt;% 
+  pivot_longer(cols = colnames(iris)[1:4]) %&gt;%
+  group_by(Species, name) %&gt;%
+  summarise(mean_val = mean(value),
+            sd_val = sd(value),
+            n_val = length(value),
+            se_val = sd_val / sqrt(n_val),
+            ci_t = qt(0.975, df = n_val - 1) * se_val)
+
+cur_dat</code></pre>
+<pre><code># A tibble: 12 x 7
+# Groups:   Species [3]
+   Species    name         mean_val sd_val n_val se_val   ci_t
+   &lt;fct&gt;      &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 setosa     Petal.Length    1.46   0.174    50 0.0246 0.0494
+ 2 setosa     Petal.Width     0.246  0.105    50 0.0149 0.0300
+ 3 setosa     Sepal.Length    5.01   0.352    50 0.0498 0.100 
+ 4 setosa     Sepal.Width     3.43   0.379    50 0.0536 0.108 
+ 5 versicolor Petal.Length    4.26   0.470    50 0.0665 0.134 
+ 6 versicolor Petal.Width     1.33   0.198    50 0.0280 0.0562
+ 7 versicolor Sepal.Length    5.94   0.516    50 0.0730 0.147 
+ 8 versicolor Sepal.Width     2.77   0.314    50 0.0444 0.0892
+ 9 virginica  Petal.Length    5.55   0.552    50 0.0780 0.157 
+10 virginica  Petal.Width     2.03   0.275    50 0.0388 0.0781
+11 virginica  Sepal.Length    6.59   0.636    50 0.0899 0.181 
+12 virginica  Sepal.Width     2.97   0.322    50 0.0456 0.0917</code></pre>
+<p>Display this in barplot:</p>
+<pre class="r"><code>cur_dat$Measurement &lt;- factor(cur_dat$name, levels = c(&quot;Petal.Width&quot;, &quot;Petal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Sepal.Length&quot;))
+p4 &lt;- ggplot(cur_dat, mapping = aes(x = Species, y = mean_val, fill = Measurement)) +
+  geom_bar(stat = &quot;identity&quot;, position = position_dodge()) +
+  geom_errorbar(aes(ymin = mean_val - ci_t, ymax = mean_val + ci_t), 
+                position = position_dodge(width = 0.9), width = 0.2) +
+  scale_fill_brewer(palette = &quot;Paired&quot;,
+                    labels = c(&quot;Petal Width&quot;, &quot;Petal Length&quot;, &quot;Sepal Width&quot;, &quot;Sepal Length&quot;)) +
+  labs(x = &quot;&quot;, y = &quot;Measured value [cm]&quot;) +
+  scale_x_discrete(breaks = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;),
+                   labels = c(&quot;Setosa&quot;, &quot;Versicolor&quot;, &quot;Virginica&quot;)) +
+    theme(panel.background = element_blank(),
+        legend.background = element_rect(colour = &quot;black&quot;),
+        legend.position = c(0.05, 0.95), 
+        legend.justification = c(&quot;left&quot;, &quot;top&quot;),
+        axis.line = element_line(),
+        axis.ticks = element_line(colour = &quot;black&quot;),
+        axis.text.y = element_text(colour = &quot;black&quot;, size = 9),
+        axis.text.x = element_text(colour = &quot;black&quot;, size = 12, angle = 45, hjust = 1),
+        axis.title = element_text(colour = &quot;black&quot;, size = 12))
+p4</code></pre>
+<p><img src="figure/04-plotting.Rmd/barplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="heatmap" class="section level2">
+<h2>Heatmap</h2>
+<p>rows: all features, col: all samples</p>
+<pre class="r"><code>library(pheatmap)
+
+cur_dat &lt;- t(iris[1:4])
+colnames(cur_dat) &lt;- rownames(iris)
+p5 &lt;- pheatmap(cur_dat, scale = &quot;row&quot;, color = colorRampPalette(c(&quot;dark blue&quot;, &quot;white&quot;, &quot;dark red&quot;))(100),
+               annotation_col = data.frame(row.names = colnames(cur_dat),
+                                           Species = iris$Species),
+               annotation_colors = list(Species = colour_vec),
+               show_colnames = FALSE,
+               labels_row = sub(&quot;\\.&quot;, &quot; &quot;, rownames(cur_dat)))</code></pre>
+<p><img src="figure/04-plotting.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="stitching-it-together" class="section level2">
+<h2>Stitching it together</h2>
+<pre class="r"><code>library(cowplot)</code></pre>
+<pre><code>
+********************************************************</code></pre>
+<pre><code>Note: As of version 1.0.0, cowplot does not change the</code></pre>
+<pre><code>  default ggplot2 theme anymore. To recover the previous</code></pre>
+<pre><code>  behavior, execute:
+  theme_set(theme_cowplot())</code></pre>
+<pre><code>********************************************************</code></pre>
+<pre class="r"><code>upper_row &lt;- p1
+middle_row &lt;- plot_grid(p2 + theme(legend.title = element_text(size = 10),
+                                   legend.text = element_text(size = 8),
+                                   legend.key.size = unit(0.1, &quot;cm&quot;),
+                                   legend.position = c(1, 1.3)), 
+                        p3 + theme(legend.title = element_text(size = 10),
+                                   legend.text = element_text(size = 8),
+                                   legend.key.width = unit(0.3, &quot;cm&quot;)), 
+                        p4 + theme(legend.title = element_text(size = 8),
+                                   legend.text = element_text(size = 6),
+                                   legend.position = c(0.05, 1.1),
+                                   legend.key.size = unit(0.3, &quot;cm&quot;)), 
+                        ncol = 3, labels = c(&quot;B&quot;, &quot;C&quot;, &quot;D&quot;))
+lower_row &lt;- p5$gtable
+
+final_figure &lt;- plot_grid(upper_row, middle_row, lower_row, labels = c(&quot;A&quot;, &quot;&quot;, &quot;E&quot;), nrow = 3)
+
+ggsave(filename = &quot;docs/final_figures/Fig_1.pdf&quot;, plot = final_figure, width = 210, height = 290, units = &quot;mm&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -692,20 +805,28 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.0   workflowr_1.6.2
+ [1] cowplot_1.0.0      pheatmap_1.0.12    forcats_0.5.0      stringr_1.4.0     
+ [5] dplyr_0.8.5        purrr_0.3.4        readr_1.3.1        tidyr_1.0.2       
+ [9] tibble_3.0.1       tidyverse_1.3.0    RColorBrewer_1.1-2 ggsci_2.9         
+[13] ggplot2_3.3.0      workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.4.6     compiler_4.0.0   pillar_1.4.4     later_1.0.0     
- [5] git2r_0.27.1     tools_4.0.0      digest_0.6.25    evaluate_0.14   
- [9] lifecycle_0.2.0  tibble_3.0.1     gtable_0.3.0     pkgconfig_2.0.3 
-[13] rlang_0.4.6      yaml_2.2.1       xfun_0.13        withr_2.2.0     
-[17] stringr_1.4.0    dplyr_0.8.5      knitr_1.28       fs_1.4.1        
-[21] vctrs_0.2.4      rprojroot_1.3-2  grid_4.0.0       tidyselect_1.0.0
-[25] glue_1.4.0       R6_2.4.1         rmarkdown_2.1    farver_2.0.3    
-[29] purrr_0.3.4      magrittr_1.5     whisker_0.4      backports_1.1.6 
-[33] scales_1.1.0     promises_1.1.0   htmltools_0.4.0  ellipsis_0.3.0  
-[37] assertthat_0.2.1 colorspace_1.4-1 httpuv_1.5.2     labeling_0.3    
-[41] stringi_1.4.6    munsell_0.5.0    crayon_1.3.4    </code></pre>
+ [1] Rcpp_1.0.4.6     lubridate_1.7.8  lattice_0.20-41  assertthat_0.2.1
+ [5] rprojroot_1.3-2  digest_0.6.25    utf8_1.1.4       R6_2.4.1        
+ [9] cellranger_1.1.0 backports_1.1.6  reprex_0.3.0     evaluate_0.14   
+[13] httr_1.4.1       pillar_1.4.4     rlang_0.4.6      readxl_1.3.1    
+[17] rstudioapi_0.11  Matrix_1.2-18    rmarkdown_2.1    labeling_0.3    
+[21] splines_4.0.0    munsell_0.5.0    broom_0.5.6      compiler_4.0.0  
+[25] httpuv_1.5.2     modelr_0.1.7     xfun_0.13        pkgconfig_2.0.3 
+[29] mgcv_1.8-31      htmltools_0.4.0  tidyselect_1.0.0 fansi_0.4.1     
+[33] crayon_1.3.4     dbplyr_1.4.3     withr_2.2.0      later_1.0.0     
+[37] grid_4.0.0       nlme_3.1-147     jsonlite_1.6.1   gtable_0.3.0    
+[41] lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1     magrittr_1.5    
+[45] scales_1.1.0     cli_2.0.2        stringi_1.4.6    farver_2.0.3    
+[49] fs_1.4.1         promises_1.1.0   xml2_1.3.2       ellipsis_0.3.0  
+[53] generics_0.0.2   vctrs_0.2.4      tools_4.0.0      glue_1.4.0      
+[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5     
+[61] knitr_1.28       haven_2.2.0     </code></pre>
 </div>
 </div>
 

@@ -9,6 +9,10 @@ navbar:
     href: 01-readData.html
   - text: Data analysis
     href: 02-analyseData.html
+  - text: Regression
+    href: 03-regression.html
+  - text: Pretty plots
+    href: 04-plotting.html
   - text: About
     href: about.html
   - text: License
